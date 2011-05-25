@@ -1,0 +1,33 @@
+== Run this application on local
+
+To run this application on your local machine, all you need is:
+
+* Ruby 1.8.7
+* Rails-3 or higher version
+* Mysql Database
+
+== Steps
+
+Once you have the following dependencies, you can follow these steps:
+
+* Open command/terminal window. Go where this app is installed and type: <tt>bundle install</tt>
+
+* After that, create a new schema, by typing: <tt>rake db:create</tt>
+
+* Once done, run the migration, with <tt>rake db:migrate</tt>
+
+* Start the server and open the url <tt>http://localhost:#{YOUR PORT NUMBER}/users/new
+
+and enjoy the application.
+
+Do Share your feedback.
+
+
+== dbconsole
+
+You can go to the command line of your database directly through <tt>rails
+dbconsole</tt>. You would be connected to the database with the credentials
+defined in database.yml. Starting the script without arguments will connect you
+to the development database. Passing an argument will connect you to a different
+database, like <tt>rails dbconsole production</tt>. Currently works for MySQL,
+PostgreSQL and SQLite 3.

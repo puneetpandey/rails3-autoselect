@@ -1,0 +1,57 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation" align="center">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table align="center">
+    <tr>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :email %></td>
+      <td><%= f.text_field :email %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :country_id %></td>
+      <td><%= f.select(:country_id, "<option>-Select Country-</option>" + options_from_collection_for_select(@countries, :id, :name)) %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :state_id %></td>
+      <td>
+        <div id="state_id_container">
+          <select name="state_id">
+            <option value="">--Select State--</option>
+          </select>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :city_id %></td>
+      <td>
+        <div id="city_id_container">
+          <select name="city_id">
+            <option value="">--Select City--</option>
+          </select>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <br /><br />
+  <div class="actions" align="center">
+    <%= f.submit %>
+  </div>
+<% end %>

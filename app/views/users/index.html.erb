@@ -1,0 +1,16 @@
+<h1>Listing users</h1>
+
+<% form_tag users_path, :method => :get, :remote => true do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<div id="users">
+  <%= render @users %>
+</div>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>
